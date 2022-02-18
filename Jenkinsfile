@@ -18,7 +18,8 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-                      echo ${env.JOB_BASE_NAME}
+                      def jobBaseName = "${env.JOB_NAME}".split('/').last()
+                      echo "Job Name (excl. path): ${jobBaseName}"
                               sh './gradlew clean build'
                          }
                     }
