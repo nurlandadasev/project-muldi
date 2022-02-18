@@ -18,6 +18,7 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
+                      echo '${env.JOB_BASE_NAME}'
                               sh './gradlew clean build'
                          }
                     }
