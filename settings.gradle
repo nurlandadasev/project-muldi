@@ -1,0 +1,3 @@
+rootProject.name = 'project-muldi'
+include 'test-module'
+include 'test-module-second'
