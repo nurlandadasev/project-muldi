@@ -19,8 +19,7 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-
-                              echo "Job Name (excl. path): ${jobBaseName}";
+                            sh './gradlew clean :${jobBaseName}:build'
                          }
                     }
 
