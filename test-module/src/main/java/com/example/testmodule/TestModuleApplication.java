@@ -9,6 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TestModuleApplication {
 
     public static void main(String[] args) {
+        Users users = new Users();
+
+        System.out.println(users);
         SpringApplication.run(TestModuleApplication.class, args);
     }
 
