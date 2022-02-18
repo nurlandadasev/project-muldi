@@ -18,7 +18,7 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-                              checkout('https://github.com/nurlandadasev/${env.JOB_BASE_NAME}.git')
+                              checkout('https://github.com/nurlandadasev/' + ${env.JOB_BASE_NAME} +'.git')
                               sh './gradlew clean build'
                          }
                     }
@@ -51,7 +51,7 @@ pipeline {
                           }
                      }
 
-         
+
 
     }
 
