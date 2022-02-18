@@ -6,16 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestModuleApplication implements CommandLineRunner {
+public class TestModuleApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TestModuleApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        Users users = new Users();
 
-        System.out.println(users);
-    }
 }
