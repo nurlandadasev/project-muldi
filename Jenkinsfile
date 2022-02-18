@@ -5,6 +5,7 @@ pipeline {
         registryCredential = 'DockerHubCredentials'
         testProjectPort = '8585'
         dockerImage = ''
+        def jobBaseName = "${env.JOB_NAME}".split('/').last()
   }
 
 
@@ -18,7 +19,7 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-                              def jobBaseName = "${env.JOB_NAME}".split('/').last();
+
                               echo "Job Name (excl. path): ${jobBaseName}";
                          }
                     }
