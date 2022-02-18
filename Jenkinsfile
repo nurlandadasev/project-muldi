@@ -16,6 +16,8 @@ pipeline {
 
   stages {
 
+    dir("${env.JOB_BASE_NAME}"){
+
                   stage('Build jar file') {
                       steps {
                               checkout('https://github.com/nurlandadasev/${env.JOB_BASE_NAME}.git')
@@ -40,6 +42,7 @@ pipeline {
                               }
                           }
                      }
+                  }
 
 
                   stage('Run docker image') {
@@ -50,7 +53,7 @@ pipeline {
                           }
                      }
 
-         
+         }
 
     }
 
