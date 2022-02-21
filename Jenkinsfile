@@ -6,6 +6,7 @@ pipeline {
         testProjectPort = '8585'
         dockerImage = ''
         def jobBaseName = "${env.JOB_NAME}".split('/').last()
+        def projectName = jobBaseName
   }
 
 
@@ -19,14 +20,14 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-                            sh './gradlew clean :${jobBaseName}:build'
+                            sh './gradlew clean :${projectName}:build'
                          }
                     }
 
                   stage('Build docker image') {
                       steps {
                          script {
-                           dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                           dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg project_name=${projectName} -f /project-muldi/Dockerfile .")
                              }
                          }
                     }
