@@ -26,7 +26,7 @@ pipeline {
                   stage('Build docker image') {
                       steps {
                          script {
-                           dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg project_name=${projectName} -f /project-muldi/Dockerfile .")
+                           dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg project_name=${projectName} -f /Dockerfile .")
                              }
                          }
                     }
