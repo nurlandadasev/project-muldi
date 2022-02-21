@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-        registry = "nurlandadashev/test"
+        registry = "nurlandadashev/"
         registryCredential = 'DockerHubCredentials'
         testProjectPort = '8585'
         dockerImage = ''
@@ -26,7 +26,7 @@ pipeline {
                   stage('Build docker image') {
                       steps {
                          script {
-                           dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg project_name=${projectName} .")
+                           dockerImage = docker.build(registry + "${projectName}:$BUILD_NUMBER", "--build-arg project_name=${projectName} .")
                              }
                          }
                     }
