@@ -12,10 +12,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
 }
