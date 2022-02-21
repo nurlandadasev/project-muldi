@@ -5,8 +5,7 @@ pipeline {
         registryCredential = 'DockerHubCredentials'
         testProjectPort = '8585'
         dockerImage = ''
-        def jobBaseName = "${env.JOB_NAME}".split('/').last()
-        def projectName = ${jobBaseName}
+        def projectName = "${env.JOB_NAME}".split('/').last()
   }
 
 
