@@ -42,7 +42,7 @@ pipeline {
                      }
                   }
 
-                  tage('Run docker-compose'){
+                  stage('Run docker-compose'){
                                    steps{
                                       script{
                                           sh 'REPO=' + registry + projectName + ' VERSION=' + '$BUILD_NUMBER' + ' PORT=' + port + ' docker-compose up -d'
