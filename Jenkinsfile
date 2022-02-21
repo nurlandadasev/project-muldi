@@ -3,7 +3,7 @@ pipeline {
   environment {
         registry = "nurlandadashev/"
         registryCredential = 'DockerHubCredentials'
-        testProjectPort = '8585'
+        port = '8585'
         dockerImage = ''
         def projectName = "${env.JOB_NAME}".split('/').last()
   }
@@ -42,14 +42,13 @@ pipeline {
                      }
                   }
 
-
-                  stage('Run docker image') {
-                       steps {
-                             script {
-                                   dockerImage.run()
-                               }
-                          }
-                     }
+                  tage('Run docker-compose'){
+                                   steps{
+                                      script{
+                                          sh 'REPO=' + registry + projectName + ' VERSION=' + '$BUILD_NUMBER' + ' PORT=' + port + ' docker-compose up -d'
+                                      }
+                                   }
+                              }
 
 
 

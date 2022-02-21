@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  market-server:
+    image: $REPO:$VERSION
+    restart: always
+    environment:
+      APPLICATION_PORT_IN_CONTAINER: $PORT
+    ports:
+      - "$PORT:$PORT"
