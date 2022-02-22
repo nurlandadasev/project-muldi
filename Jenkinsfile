@@ -5,7 +5,8 @@ pipeline {
         registryCredential = 'DockerHubCredentials'
         testProjectPort = '8585'
         dockerImage = ''
-        def projectName = "${env.JOB_NAME}".split('/').last()
+//         def projectName = "${env.JOB_NAME}".split('/').last()
+        def subProjectName = "${params.sub_project_name}"
   }
 
 
@@ -19,24 +20,24 @@ pipeline {
 
                   stage('Checkout subproject') {
                           steps {
-                              dir("${projectName}") {
+                              dir("${subProjectName}") {
                                   git branch: "master",
-                                  url: "https://github.com/nurlandadasev/${projectName}.git"
+                                  url: "https://github.com/nurlandadasev/${subProjectName}.git"
                               }
                           }
                       }
 
                   stage('Build jar file') {
                       steps {
-                            echo "Hello ${params.sub_project_name}"
-                            sh './gradlew clean :${projectName}:build'
+                            echo "Hello "
+                            sh './gradlew clean :${subProjectName}:build'
                          }
                     }
 
                   stage('Build docker image') {
                       steps {
                          script {
-                           dockerImage = docker.build(registry + "${projectName}:$BUILD_NUMBER", "--build-arg project_name=${projectName} .")
+                           dockerImage = docker.build(registry + "${subProjectName}:$BUILD_NUMBER", "--build-arg project_name=${subProjectName} .")
                              }
                          }
                     }
