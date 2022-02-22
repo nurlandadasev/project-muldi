@@ -28,7 +28,7 @@ pipeline {
 
                   stage('Build jar file') {
                       steps {
-                            echo "Hello ${params.subProjectName}"
+                            echo "Hello ${params.sub_project_name}"
                             sh './gradlew clean :${projectName}:build'
                          }
                     }
