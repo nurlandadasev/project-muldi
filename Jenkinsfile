@@ -21,7 +21,7 @@ pipeline {
                           steps {
                               dir("test-module") {
                                   git branch: "master",
-                                  url: 'https://github.com/nurlandadasev/test-module.git'
+                                  url: 'https://github.com/nurlandadasev/${projectName}.git'
                               }
                           }
                       }
