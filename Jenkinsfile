@@ -19,7 +19,6 @@ pipeline {
 
                   stage('pwd') {
                   steps {
-                        dir('')
                         sh 'pwd'
                     }
                   }
