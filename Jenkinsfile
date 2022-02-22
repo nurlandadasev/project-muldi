@@ -16,6 +16,12 @@ pipeline {
   }
 
   stages {
+                    
+                  stage('pwd') {
+                  steps {
+                        sh 'pwd'
+                    }
+                  }
 
                   stage('Build jar file') {
                       steps {
