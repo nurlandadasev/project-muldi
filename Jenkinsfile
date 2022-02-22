@@ -6,7 +6,6 @@ pipeline {
         testProjectPort = '8585'
         dockerImage = ''
         def projectName = "${env.JOB_NAME}".split('/').last()
-        gitUrl =
   }
 
 
