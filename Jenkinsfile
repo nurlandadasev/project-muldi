@@ -20,7 +20,7 @@ pipeline {
 
                   stage('Checkout test-module') {
                           steps {
-                              dir(${projectName}) {
+                              dir("${projectName}") {
                                   git branch: "master",
                                   url: gitUrl
                               }
