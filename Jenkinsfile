@@ -17,16 +17,9 @@ pipeline {
 
   stages {
 
-                  stage('pwd') {
-                  steps {
-                        sh 'pwd'
-                    }
-                  }
-
-                  stage('CheckoutTestModule') {
+                  stage('Checkout test-module') {
                           steps {
                               dir("test-module") {
-                                    sh 'pwd'
                                   git branch: "master",
                                   url: 'https://github.com/nurlandadasev/test-module.git'
                               }
