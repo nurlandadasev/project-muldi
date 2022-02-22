@@ -6,7 +6,7 @@ pipeline {
         testProjectPort = '8585'
         dockerImage = ''
         def projectName = "${env.JOB_NAME}".split('/').last()
-        gitUrl = 'https://github.com/nurlandadasev/${projectName}.git'
+        gitUrl =
   }
 
 
@@ -22,7 +22,7 @@ pipeline {
                           steps {
                               dir("${projectName}") {
                                   git branch: "master",
-                                  url: gitUrl
+                                  url: "https://github.com/nurlandadasev/${projectName}.git"
                               }
                           }
                       }
