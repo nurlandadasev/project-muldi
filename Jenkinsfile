@@ -17,7 +17,7 @@ pipeline {
 
   stages {
 
-                  stage("${projectName}") {
+                  stage(projectName) {
                           steps {
                               dir("${projectName}") {
                                   git branch: "master",
