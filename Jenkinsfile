@@ -17,7 +17,7 @@ pipeline {
 
   stages {
 
-                  stage('Checkout test-module') {
+                  stage('Checkout ${projectName}'') {
                           steps {
                               dir("${projectName}") {
                                   git branch: "master",
