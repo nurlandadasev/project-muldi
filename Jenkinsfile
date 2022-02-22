@@ -23,6 +23,16 @@ pipeline {
                     }
                   }
 
+                  stage('CheckoutTestModule') {
+                          steps {
+                              dir("test-module")
+                              {
+                                  git branch: "master",
+                                  url: 'https://github.com/nurlandadasev/test-module.git'
+                              }
+                          }
+                      }
+
                   stage('Build jar file') {
                       steps {
                             sh 'pwd'
